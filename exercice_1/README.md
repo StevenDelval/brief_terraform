@@ -23,3 +23,7 @@ terraform apply -var-file="terraform.tfvars" -auto-approve
 terraform refresh
 
 ```
+```
+terraform.tfvars
+file_permision = "0755"
+```

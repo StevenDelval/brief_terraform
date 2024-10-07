@@ -27,3 +27,9 @@ terraform apply -var-file="terraform.tfvars" -auto-approve
 terraform refresh
 
 ```
+```
+terraform.tfvars
+file_permision = "0755"
+file_name = "Hello_2.txt"
+file_content = "Bienvenue dans Terraform ! 2"
+```
