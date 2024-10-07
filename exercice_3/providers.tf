@@ -1,0 +1,6 @@
+provider "local" {
+  
+}
+provider "http" {
+  
+}
