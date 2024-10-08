@@ -10,6 +10,20 @@ variable "resource_group_name" {
   description = "The resource group name."
 }
 
+variable "storage_account_name" {
+  type        = string
+  description = "The storage account name."
+}
+
+variable "storage_container_name" {
+  type        = string
+  description = "The storage container name."
+}
+variable "blob_name" {
+  type        = string
+  description = "The blob name."
+}
+
 variable "username" {
   type        = string
   description = "The username for the local account that will be created on the new VM."
