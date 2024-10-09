@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Activer l'exportation des variables d'environnement
 set -o allexport
 if [ -f .env ]; then
