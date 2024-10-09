@@ -15,3 +15,12 @@ variable "network_interface_name" {
   type        = string
   description = "The network interface name."
 }
+variable "storage_account_name" {
+  type        = string
+  description = "The storage account name."
+}
+
+variable "vm_name" {
+  type        = string
+  description = "The virtual machine name."
+}
