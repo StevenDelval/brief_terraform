@@ -19,3 +19,15 @@ module "web_app" {
     app_service_plan_name = var.app_service_plan_name
   
 }
+
+module "vm" {
+    source = "./modules/vm"
+
+    resource_group_location = var.resource_group_location
+    resource_group_name = var.resource_group_name
+    storage_account_name = var.storage_account_name
+    vm_name = var.vm_name
+    username = var.username
+    network_interface_name = var.network_interface_name
+  
+}
