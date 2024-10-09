@@ -7,8 +7,8 @@ terraform {
   }
   backend "azurerm" {
       resource_group_name  = "de_p1_resource_group"
-      storage_account_name = "North Europe"
-      container_name       = "tfstatedataingpun"
+      storage_account_name = "tfstatedataingpun"
+      container_name       = "tfstatesteven"
       key                  = "terraform.tfstate"
   }
 
