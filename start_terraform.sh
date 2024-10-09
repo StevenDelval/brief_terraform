@@ -21,11 +21,13 @@ az storage account create \
   --location $LOCATION \
   --sku Standard_LRS \
   --kind StorageV2 \
-  --allow-blob-public-access false
+  --encryption-services blob
+
 if [ $? -eq 0 ]; then
     log_with_date "Storage '$STORAGE_NAME' dans le groupe de ressources '$RESOURCE_GROUP_NAME' créé dans la localisation '$LOCATION'."
 else
     log_with_date "Problème lors de la creation du compte de stockage  '$STORAGE_NAME'."
+    exit
 fi
 # Creation du Containeur Blob 
 az storage container create --name $NOM_BLOB_CONTAINER --account-name $STORAGE_NAME
@@ -33,6 +35,7 @@ if [ $? -eq 0 ]; then
     log_with_date "Container '$NOM_BLOB_CONTAINER' dans le compte de stockage '$STORAGE_NAME' cree."
 else
     log_with_date "Problème lors de la creation du container '$NOM_BLOB_CONTAINER' dans le compte de stockage '$STORAGE_NAME'."
+    exit
 fi
 
 cd brief
