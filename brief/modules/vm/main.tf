@@ -2,13 +2,17 @@ data "azurerm_network_interface" "ani" {
     resource_group_name = var.resource_group_name
     name = var.network_interface_name
 }
+data "azurerm_storage_account" "asa" {
+  resource_group_name = var.resource_group_name
+  name = var.storage_account_name
+}
 
 # Create virtual machine
-resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
-  name                  = "myVM"
+resource "azurerm_linux_virtual_machine" "vm" {
+  name                  = var.vm_name
   location              = var.resource_group_location
   resource_group_name   = var.resource_group_name
-  network_interface_ids = [azurerm_network_interface.ani.id]
+  network_interface_ids = [data.azurerm_network_interface.ani.id]
   size                  = "Standard_DS1_v2"
 
   os_disk {
@@ -33,6 +37,7 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   }
 
   boot_diagnostics {
-    storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
+    storage_account_uri = data.azurerm_storage_account.asa.primary_blob_endpoint
   }
+  
 }
