@@ -17,7 +17,7 @@ module "web_app" {
     resource_group_name = var.resource_group_name
     app_service_name = var.app_service_name
     app_service_plan_name = var.app_service_plan_name
-  
+    depends_on = [ module.azure_storage ]
 }
 
 module "vm" {
@@ -29,5 +29,5 @@ module "vm" {
     vm_name = var.vm_name
     username = var.username
     network_interface_name = var.network_interface_name
-  
+    depends_on = [ module.azure_storage ]
 }
