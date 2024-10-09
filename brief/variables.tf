@@ -34,3 +34,12 @@ variable "app_service_plan_name" {
     type = string
     description = "The app service plan name"
 }
+variable "network_interface_name" {
+  type        = string
+  description = "The network interface name."
+}
+
+variable "vm_name" {
+  type        = string
+  description = "The virtual machine name."
+}
