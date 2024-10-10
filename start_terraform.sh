@@ -31,6 +31,7 @@ else
     log_with_date "Problème lors de la creation du compte de stockage  '$STORAGE_NAME'."
     exit 1
 fi
+sleep 10 
 # Creation du Containeur Blob 
 az storage container create --name $NOM_BLOB_CONTAINER --account-name $STORAGE_NAME
 if [ $? -eq 0 ]; then
